@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi tech for vi total percent calculator</title>
+</head>
+<style type ="text/css">button{background-color: darkgreen;
+    color: aqua;font-size: smaller;size: 0vw;}input{background-color: blue;color: aliceblue;}
+    body{background-color: black;color: aliceblue;}h1{color: cyan;background-color: brown;}
+    :placeholder-shown{color:chartreuse;background-color: brown;left:0cap;font-size: larger;
+    }
+    select{
+        background-color:blue;
+        color: blanchedalmond;
+    }
+    </style>
+<body>
+    <h1>Hindi tech for vi total percent calculator</h1>
+    Select Your Choice
+    <select id="htv" onchange="showDiv();">
+        <option value="">Select Option</option>
+        <option value="total">Calculate Total number</option>
+        <option value="percentage">Calculate percentage</option>
+        <option value="grade">Calculate Grade to percentage</option>
+        <option value="contact">Contact us </option>
+    </select>
+    <div id="totalDiv" style="display:none;">
+        Calculate total number <br>
+        <p>Please don't leave the edit box blank if you have 5 subjects then write 0 in subject 6</p>
+        <input type="number" id="n1" placeholder="Enter the number of subject 1"><br>
+        <input type="number" id="n2" placeholder="Enter the number of subject 2"><br>
+        <input type="number" id="n3" placeholder="Enter the number of subject 3"><br>
+        <input type="number" id="n4" placeholder="Enter the number of subject 4"><br>
+        <input type="number" id="n5" placeholder="Enter the number of subject 5"><br>
+        <input type="number" id="n6" placeholder="Enter the number of subject 6"><br>
+        <button onclick="totalnumber();">Get Total number</button><br>
+        Your Total number is : <samp id="t"></samp>
+    </div>
+    <div id="percentageDiv" style="display:none;">
+        Calculate percentage <br>
+        <input type="number" id="tm" placeholder="Enter Total marks"><br>
+        <input type="number" id="fm" placeholder="Enter Full marks"><br>
+        <button onclick="niraj();">Get percentage</button><br>
+        Your percentage is : <span id="p"></span>
+    </div>
+    <div id="gradeDiv" style="display:none;">
+        Calculate Grade to percentage<br>
+For CBSE or University of Delhi		<br>
+        <input type="number" id="g1" placeholder="Enter Grade"><br>
+        <button onclick="gupta();">Get percentage</button><br>
+        Your percentage is : <span id="g"></span>
+    </div>
+    <div id="contactdiv" style="display: none;">
+        <h1>Wellcome to the Hindi techfor vi</h1><br>
+        <p>This software made by Niraj gupta</p>
+        Mobile : 9871262592 <br>
+        E-mail : hinditechforvi@gmail.com
+    </div>
+    <script>
+        function showDiv() {
+            var choice = document.getElementById("htv").value;
+            var totalDiv = document.getElementById("totalDiv");
+            var percentageDiv = document.getElementById("percentageDiv");
+            var gradeDiv = document.getElementById("gradeDiv");
+            var contactdiv=document.getElementById("contactdiv");
+            
+            totalDiv.style.display = "none";
+            percentageDiv.style.display = "none";
+            gradeDiv.style.display = "none";
+            contactdiv.style.display="none";
+            
+            if (choice === "total") {
+                totalDiv.style.display = "block";
+            } else if (choice === "percentage") {
+                percentageDiv.style.display = "block";
+            } else if (choice === "grade") {
+                gradeDiv.style.display = "block";
+            }
+            if(choice ==="contact"){
+                contactdiv.style=display="block";
+            }
+        }
+
+        function totalnumber() {
+            var t1 = parseInt(document.getElementById("n1").value);
+            var t2 = parseInt(document.getElementById("n2").value);
+            var t3 = parseInt(document.getElementById("n3").value);
+            var t4 = parseInt(document.getElementById("n4").value);
+            var t5 = parseInt(document.getElementById("n5").value);
+            var t6 = parseInt(document.getElementById("n6").value);
+            var t7 = t1 + t2 + t3 + t4 + t5 + t6;
+            document.getElementById("t").innerHTML = t7;
+        }
+
+        function niraj() {
+            var tmark = document.getElementById("tm").value;
+            var fmark = document.getElementById("fm").value;
+            var pe = (tmark / fmark) * 100;
+            document.getElementById("p").innerHTML = pe;
+        }
+
+        function gupta() {
+            var gr = document.getElementById("g1").value;
+            var gr1 = gr * 9.5;
+            document.getElementById("g").innerHTML = gr1;
+        }
+    </script>
+</body>
+</html>
